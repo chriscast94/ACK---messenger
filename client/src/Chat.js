@@ -32,7 +32,7 @@ const GET_MESSAGES = gql`
 
 const POST_MESSAGE = gql`
   mutation($user:String!, $text:String!){
-    postMessage(user:$user,text:$text)
+    postMessage(user:$user, text:$text)
   }
 `;
 
@@ -56,9 +56,9 @@ const Messages = ({ user }) => {
 }
 
 export const Chat = () => {
-    const [user, setUser] = useState("Victoria");
+    const [user, setUser] = useState("Luke");
     const [text, setText] = useState("");
-    const [postMessage] = useMutation(POST_MESSAGE)
+    const [postMessage] = useMutation(POST_MESSAGE);
     const sendMessage = () => {
         if (text.length > 0 && user.length > 0) {
             postMessage({
@@ -76,7 +76,7 @@ export const Chat = () => {
 
     return (
         <Container>
-            <h3>Welcome to DevThoughts! A simple chat app for the GraphQL series!</h3>
+            <h3>Let's start a conversation!</h3>
             <Messages user={user} />
             <Grid container spacing={2}>
                 <Grid item xs={3}>

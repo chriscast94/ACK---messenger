@@ -1,4 +1,5 @@
 const { GraphQLServer, PubSub } = require("graphql-yoga");
+const { Message } = require('./models');
 
 //graphQL type definitions
 const typeDefs = `
@@ -25,9 +26,11 @@ const onMessagesUpdates = (fn) => subscribers.push(fn);
 //to perform functions on each Type
 const resolvers = {
   Query: {
-    messages: () => messages, //returns messages
+    //returns messages
+    messages: () => messages,
   },
-  Mutation: { //post new message and returns id
+  //post new message and returns id
+  Mutation: {
     postMessage: (parent, { user, text }) => {
       const id = messages.length;
       messages.push({
@@ -36,7 +39,7 @@ const resolvers = {
         text,
       });
       subscribers.forEach((fn) => fn());
-      return id;
+      return Message.id;
     },
   },
   Subscription: {
