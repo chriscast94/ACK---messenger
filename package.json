@@ -1,5 +1,5 @@
 {
-    "name": "programming-thoughts",
+    "name": "ack-messenger",
     "version": "1.0.0",
     "description": "",
     "main": "server/index.js",
@@ -11,7 +11,7 @@
       "build": "cd client && npm run build"
     },
     "keywords": [],
-    "author": "",
+    "author": "Abraam, Kenny, Christian",
     "license": "ISC",
     "devDependencies": {
       "concurrently": "^5.1.0"
